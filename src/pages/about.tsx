@@ -1,5 +1,5 @@
 import { User, History, Rocket, Compass } from "lucide-react";
-import InfoCard from "../components/InfoCard";
+import InfoCard from "../components/Infocard";
 
 export default function About() {
   return (

@@ -1,6 +1,6 @@
 import FlyoutMenu from "./components/FlyoutMenu";
 import './styles/global.css'
-import About from "./pages/About";
+import About from "./pages/about";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
