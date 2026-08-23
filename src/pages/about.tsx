@@ -35,6 +35,13 @@ export default function About() {
             in a VR mini-game
           </li>
           <li>
+            <strong className="text-(--color-primary)">Independent Solutions:</strong>{" "}
+            Spent 4+ years as a Software Developer, building and maintaining
+            a production C#/.NET line-of-business application — including
+            hardware integration work (GS1 barcode scanning, Bluetooth label
+            printer connectivity) that cut scan errors by 90%
+          </li>
+          <li>
             <strong className="text-(--color-primary)">Woolworths:</strong>{" "}
             Spent 8 years working up from trolley collector to Front-End
             Supervisor — learning what it takes to work well with people
@@ -46,41 +53,14 @@ export default function About() {
       <InfoCard title="Present" icon={<Rocket size={22} />} collapsible defaultOpen={true}>
         <ul className="space-y-2 list-none pl-0">
           <li>
-            <strong className="text-(--color-primary)">Role:</strong>{" "}
-            Software Developer at Independent Solutions, building and
-            maintaining a production C#/.NET line-of-business application
+            <strong className="text-(--color-primary)">Currently:</strong>{" "}
+            Between roles and actively job hunting, using the time to
+            upskill deliberately rather than just wait it out
           </li>
-          <li>
-            <strong className="text-(--color-primary)">Hardware Integration:</strong>{" "}
-            Designed and shipped GS1 barcode scanning and Bluetooth label
-            printer connectivity, cutting scan errors by 90%
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Problem Solving:</strong>{" "}
-            Diagnosed and resolved a production data-integrity fault through
-            root-cause analysis, restoring 100% accuracy in a
-            business-critical workflow
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Day-to-Day:</strong>{" "}
-            Working across the full software lifecycle — design,
-            development, testing, code review, and production support —
-            inside an Agile team
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Still Making Games:</strong>{" "}
-            Recent game jam entries built and shipped under tight deadlines
-            (React, TypeScript)
-          </li>
-        </ul>
-      </InfoCard>
-
-      <InfoCard title="Future" icon={<Compass size={22} />} collapsible defaultOpen={true}>
-        <ul className="space-y-2 list-none pl-0">
           <li>
             <strong className="text-(--color-primary)">Certification:</strong>{" "}
-            Currently working through a Microsoft Azure AI Engineer Associate
-            (AI-200) certification — hands-on with Kubernetes, containerised
+            Working through a Microsoft Azure AI Engineer Associate (AI-200)
+            certification — hands-on with Kubernetes, containerised
             deployment, and AI inference infrastructure
           </li>
           <li>
@@ -88,6 +68,22 @@ export default function About() {
             Building this portfolio as a live project — React, TypeScript,
             and a custom design system, deployed through GitHub Actions
           </li>
+          <li>
+            <strong className="text-(--color-primary)">Still Making Games:</strong>{" "}
+            Recent game jam entries built and shipped under tight deadlines
+            (React, TypeScript)
+          </li>
+          <li>
+            <strong className="text-(--color-primary)">Mindset:</strong>{" "}
+            Treating this stretch as an opportunity to sharpen skills I
+            wouldn't otherwise get time for, and to be genuinely selective
+            about where I land next
+          </li>
+        </ul>
+      </InfoCard>
+
+      <InfoCard title="Future" icon={<Compass size={22} />} collapsible defaultOpen={true}>
+        <ul className="space-y-2 list-none pl-0">
           <li>
             <strong className="text-(--color-primary)">Direction:</strong>{" "}
             Looking to bring together my software engineering discipline and
@@ -100,6 +96,12 @@ export default function About() {
             Genuinely interested in where AI-assisted and agentic development
             is heading, and keen to keep building real, hands-on experience
             with it
+          </li>
+          <li>
+            <strong className="text-(--color-primary)">What I'm Looking For:</strong>{" "}
+            A role where I can keep growing as a developer, contribute from
+            day one, and ideally work somewhere that values the same
+            problem-solving curiosity I bring to my own projects
           </li>
         </ul>
       </InfoCard>
