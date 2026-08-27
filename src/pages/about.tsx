@@ -1,110 +1,57 @@
-import { User, History, Rocket, Compass } from "lucide-react";
-import InfoCard from "../components/Infocard";
+// src/pages/About.tsx
+import { User } from "lucide-react";
+import InfoCard from "../components/InfoCard";
+import { aboutSections } from "../data/about";
+import { iconMap } from "../utils/iconMap";
 
 export default function About() {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12 space-y-6">
-      <InfoCard title="About Me" icon={<User size={22} />}>
-        <p>
-          I'm Trevor — a Brisbane-based Developer bridging professional
-          software engineering and game development.
-        </p>
-      </InfoCard>
+    <div className="max-w-5xl mx-auto px-4 py-12 space-y-6">
+      <div className="flex items-center gap-3 mb-6">
+        <User size={24} className="text-(--color-primary)" />
+        <h1 className="text-2xl font-semibold text-(--color-primary)">
+          About Me
+        </h1>
+      </div>
 
-      <InfoCard title="Past" icon={<History size={22} />} collapsible defaultOpen={true}>
-        <ul className="space-y-2 list-none pl-0">
-          <li>
-            <strong className="text-(--color-primary)">Education:</strong>{" "}
-            Bachelor of Games and Interactive Environments, QUT (Software
-            Technologies major, Game Design minor) — conferred December 2019
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Death's Door:</strong>{" "}
-            Built AI behaviour trees, animation blendspaces, and combat
-            systems for three enemy types in Unreal Engine
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Neon Skies:</strong>{" "}
-            Designed and built a 3D drone-flying game — drone AI, waypoint
-            navigation, a SQL-backed player-data system, and an upgrade
-            manager
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Hook Your Hunger:</strong>{" "}
-            Built movement and behaviour logic for four distinct enemy types
-            in a VR mini-game
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Independent Solutions:</strong>{" "}
-            Spent 4+ years as a Software Developer, building and maintaining
-            a production C#/.NET line-of-business application — including
-            hardware integration work (GS1 barcode scanning, Bluetooth label
-            printer connectivity) that cut scan errors by 90%
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Woolworths:</strong>{" "}
-            Spent 8 years working up from trolley collector to Front-End
-            Supervisor — learning what it takes to work well with people
-            under pressure
-          </li>
-        </ul>
-      </InfoCard>
+      {aboutSections.map((section) => {
+        const IconComponent = iconMap[section.icon as keyof typeof iconMap];
+        const isList = Array.isArray(section.content);
 
-      <InfoCard title="Present" icon={<Rocket size={22} />} collapsible defaultOpen={true}>
-        <ul className="space-y-2 list-none pl-0">
-          <li>
-            <strong className="text-(--color-primary)">Currently:</strong>{" "}
-            Between roles and actively job hunting, using the time to
-            upskill deliberately rather than just wait it out
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Certification:</strong>{" "}
-            Working through a Microsoft Azure AI Engineer Associate (AI-200)
-            certification — hands-on with Kubernetes, containerised
-            deployment, and AI inference infrastructure
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">This Site:</strong>{" "}
-            Building this portfolio as a live project — React, TypeScript,
-            and a custom design system, deployed through GitHub Actions
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Still Making Games:</strong>{" "}
-            Recent game jam entries built and shipped under tight deadlines
-            (React, TypeScript)
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Mindset:</strong>{" "}
-            Treating this stretch as an opportunity to sharpen skills I
-            wouldn't otherwise get time for, and to be genuinely selective
-            about where I land next
-          </li>
-        </ul>
-      </InfoCard>
-
-      <InfoCard title="Future" icon={<Compass size={22} />} collapsible defaultOpen={true}>
-        <ul className="space-y-2 list-none pl-0">
-          <li>
-            <strong className="text-(--color-primary)">Direction:</strong>{" "}
-            Looking to bring together my software engineering discipline and
-            my original passion for games — whether that's a QA, engineering,
-            or tools role in the games industry, or continuing to grow as a
-            developer more broadly
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">Curiosity:</strong>{" "}
-            Genuinely interested in where AI-assisted and agentic development
-            is heading, and keen to keep building real, hands-on experience
-            with it
-          </li>
-          <li>
-            <strong className="text-(--color-primary)">What I'm Looking For:</strong>{" "}
-            A role where I can keep growing as a developer, contribute from
-            day one, and ideally work somewhere that values the same
-            problem-solving curiosity I bring to my own projects
-          </li>
-        </ul>
-      </InfoCard>
+        return (
+          <InfoCard
+            key={section.id}
+            title={section.title}
+            icon={IconComponent ? <IconComponent size={22} /> : undefined}
+            collapsible
+            defaultOpen={section.defaultOpen}
+          >
+            {isList ? (
+              <ul className="space-y-2 list-none pl-0">
+                {section.content.map((item, index) => (
+                  <li key={index}>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: item.replace(/\*\*(.*?)\*\*/g, (_, text) => {
+                          return `<strong class="text-(--color-primary)">${text}</strong>`;
+                        }),
+                      }}
+                    />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: section.content.replace(/\*\*(.*?)\*\*/g, (_, text) => {
+                    return `<strong class="text-(--color-primary)">${text}</strong>`;
+                  }),
+                }}
+              />
+            )}
+          </InfoCard>
+        );
+      })}
     </div>
   );
 }
