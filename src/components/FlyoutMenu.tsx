@@ -5,7 +5,8 @@ import {
   User,
   Wrench,
   Briefcase,
-  GraduationCap
+  GraduationCap,
+  FolderKanban
 } from "lucide-react";
 
 import { SocialIcon } from 'react-social-icons';
@@ -17,16 +18,21 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { label: "About Me", href: "/about", icon: <User size={20} /> },
-  { label: "Skills", href: "/skills", icon: <Wrench size={20} /> },
+  { label: "About Me", href: "/trevor-baker-portfolio/about", icon: <User size={20} /> },
+  { label: "Skills", href: "/trevor-baker-portfolio/skills", icon: <Wrench size={20} /> },
   {
     label: "Experience",
-    href: "/experience",
+    href: "/trevor-baker-portfolio/experience",
     icon: <Briefcase size={20} />,
   },
   {
+    label: "Projects",
+    href: "/trevor-baker-portfolio/projects",
+    icon: <FolderKanban size={20} />,
+  },
+  {
     label: "Credentials",
-    href: "/credentials",
+    href: "/trevor-baker-portfolio/credentials",
     icon: <GraduationCap size={20} />,
   },
 ];
@@ -88,22 +94,19 @@ export default function FlyoutMenu() {
         </ul>
 
         <div className="mt-auto px-6 py-6 border-t border-black/10">
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="flex items-center justify-center w-9 h-9 rounded-full
-                  text-(--color-primary) hover:bg-(--color-primary)/10 transition-colors"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-        </div>
+  <div className="flex items-center gap-4">
+    {socialLinks.map((social) => (
+      <span
+        key={social.label}
+        aria-label={social.label}
+        className="flex items-center justify-center w-9 h-9 rounded-full
+          hover:bg-(--color-primary)/10 transition-colors"
+      >
+        {social.icon}
+      </span>
+    ))}
+  </div>
+</div>
       </aside>
 
       {/* ---------- Mobile trigger button (visible below md) ---------- */}
@@ -160,22 +163,19 @@ export default function FlyoutMenu() {
         </ul>
 
         <div className="absolute bottom-0 left-0 right-0 border-t border-black/10 px-6 py-5">
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="flex items-center justify-center w-10 h-10 rounded-full
-                  text-(--color-primary) hover:bg-(--color-primary)/10 transition-colors"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-        </div>
+  <div className="flex items-center gap-4">
+    {socialLinks.map((social) => (
+      <span
+        key={social.label}
+        aria-label={social.label}
+        className="flex items-center justify-center w-10 h-10 rounded-full
+          hover:bg-(--color-primary)/10 transition-colors"
+      >
+        {social.icon}
+      </span>
+    ))}
+  </div>
+</div>
       </nav>
     </>
   );
